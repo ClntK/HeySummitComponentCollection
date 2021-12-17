@@ -1,0 +1,550 @@
+<section>
+
+    <style>
+        /* color codes */
+        :root {
+            --color-gray: #888;
+            --color-black: #000;
+            --color-white: #fff;
+            --color-ltgreen: #b0bc2e;
+            --color-green: #a3ab28;
+            --color-dkgreen: #969b24;
+            --color-yellow: #fae44d;
+            --color-gold: #fbc038;
+            --color-ltorange: #ff4625;
+            --color-dkorange: #e62b0a;
+            --color-orange: #f7583b;
+            --color-red: #c21d41;
+            --color-ltpurple: #9c2c54;
+            --color-purple: #802448;
+            --color-mauve: #573f42;
+            --color-brown: #662d2a;
+            --color-dkblue: #375161;
+            --color-ltblue: #D1E5DE;
+
+            --font-primary: open-sans, san-serif;
+            font-weight: 400;
+            font-style: normal;
+
+            --font-bold: open-sans, san-serif;
+            font-weight: 600;
+            font-style: normal;
+
+            --font-extrabold: open-sans, san-serif;
+            font-weight: 900;
+            font-style: normal;
+
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+
+        #agenda>div.section-heading {
+            box-sizing: border-box;
+            position: relative;
+            padding: 40px 0;
+            /* agenda heading background heading */
+            /* background-color: var(--color-dkblue); */
+            text-align: center;
+        }
+
+
+        #agenda>div.section-heading>p.section-heading_title {
+            margin: 20px auto;
+            font-family: var(--font-extrabold);
+            font-size: calc(32px + 120 * ((100vw - 320px) / (1600 - 300)));
+            font-weight: 600;
+            line-height: 1.2em;
+            color: var(--color-dkblue)
+        }
+
+        #agenda>div.section-heading>p.dailyTheme {
+            color: var(--color-dkblue);
+            font-size: 36px;
+        }
+
+        #agenda>div.section-heading>p.section-heading_description {
+            font-size: 20px;
+            color: var(--color-dkblue);
+
+        }
+
+        .section-heading_description {
+            font-weight: 500;
+        }
+
+        #agenda {
+            position: relative;
+            padding-bottom: 50px;
+            /* background for the entire page */
+            /* background-color: var(--color-dkblue); */
+        }
+
+        #agenda .section-heading h3 {
+            color: whitesmoke;
+        }
+
+        #agenda .section-heading h2 {
+            color: whitesmoke;
+            line-height: 1em;
+        }
+
+        #agenda .section-heading p {
+            color: whitesmoke;
+        }
+
+        #agenda .agenda-schedule {
+            margin: 30px;
+            font-family: 'sofia-pro', sans-serif;
+        }
+
+        #agenda .agenda-schedule .agenda-day {
+            display: block;
+            width: 100%;
+            max-width: 950px;
+            height: auto;
+            margin: 0 auto 100px;
+            padding: 35px;
+            /* agenda day BG color */
+            background-color: var(--color-mauve);
+            border-radius: 15px;
+            filter: drop-shadow(12px 12px 10px gray);
+        }
+
+
+        #agenda>div.agenda-schedule>div.agenda-day>div.agenda-date.squareMobile {
+            display: none;
+        }
+
+
+        #agenda>div.agenda-schedule>div.agenda-day.two>div.agenda-date {
+            display: none;
+        }
+
+        #agenda .agenda-info {
+            width: 100%;
+            /* border: red 3px solid; */
+        }
+
+        #agenda .agenda-date {
+            height: 150px;
+            /* border: green 3px solid; */
+        }
+
+        .agenda-date_square {
+            display: inline;
+            width: 20%;
+            height: inherit;
+            text-align: center;
+            /* border: yellow 3px solid; */
+            float: left;
+        }
+
+        .two .agenda-date_square {
+            float: right;
+        }
+
+        .dayDesc {
+            display: inline;
+            width: 75%;
+            height: inherit;
+            padding-top: 35px;
+            padding-left: 30px;
+            /* border: blue 3px solid; */
+            float: right;
+        }
+
+        .itinerary {
+            display: block;
+            width: 100%;
+            /* border: white 3px solid; */
+        }
+
+        #agenda>div.agenda-schedule>div.agenda-day>div.agenda-info>div.itinerary>a {
+            color: var(--color-mauve);
+        }
+
+        p.dailyTheme {
+            color: white;
+            line-height: 1.2em;
+            font-size: 24px;
+        }
+
+        p.dayOfTheWeek {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        #agenda .agenda-schedule .agenda-day .agenda-date .agenda-date_number {
+            /* width of colored shapes */
+            width: 130px;
+            /* height of colored shapes */
+            height: 130px;
+            border: white 5px solid;
+            /* border radius */
+            border-radius: 20%;
+            margin: auto;
+            padding: 15px 0 0;
+            font-size: 44px;
+            font-weight: 600;
+            line-height: 50px;
+            vertical-align: middle;
+            color: #FFFFFF;
+        }
+
+
+
+        #agenda .agenda-schedule .agenda-day .agenda-date .agenda-date_month {
+            position: relative;
+            margin: auto;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 0.15em;
+            color: whitesmoke;
+        }
+
+        #agenda .agenda-schedule .agenda-day.one .agenda-date .agenda-date_number {
+            background: var(--color-purple);
+        }
+
+        #agenda .agenda-schedule .agenda-day.two .agenda-date .agenda-date_number {
+            background: var(--color-dkgreen);
+        }
+
+        #agenda>div.agenda-schedule>div.agenda-day.three {
+            margin: 0 auto 50px;
+        }
+
+        #agenda .agenda-schedule .agenda-day.three .agenda-date .agenda-date_number {
+            background: var(--color-gold);
+        }
+
+
+
+        #agenda .agenda-schedule .agenda-day .agenda-info .tag {
+            padding: 7px 22px 8px;
+            font-family: var(--font-secondary);
+            font-style: normal;
+            font-weight: 500;
+            font-size: 19px;
+            line-height: 160%;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 0 15px 13px 0;
+        }
+
+        #agenda .agenda-schedule .agenda-day.one .agenda-info .tag {
+            background: var(--color-ltpurple);
+            color: #A28A29;
+        }
+
+        #agenda .agenda-schedule .agenda-day.two .agenda-info .tag {
+            background: var(--color-ltgreen);
+            color: #C7594B;
+            text-align: right;
+        }
+
+        #agenda .agenda-schedule .agenda-day.three .agenda-info .tag {
+            background: var(--color-yellow);
+            color: #2882C4;
+        }
+
+        #agenda .agenda-schedule .agenda-day .agenda-info a.tag {
+            text-decoration: none;
+            transition: all 200ms ease;
+        }
+
+        #agenda .agenda-schedule .agenda-day.one .agenda-info a.tag:hover {
+            color: #FFEC9F;
+            background: #A28A29 !important;
+        }
+
+        #agenda .agenda-schedule .agenda-day.two .agenda-info a.tag:hover {
+            color: #FFC2BB;
+            background: #C7594B !important;
+        }
+
+        #agenda .agenda-schedule .agenda-day.three .agenda-info a.tag:hover {
+            color: #BDE1FC;
+            background: #2882C4 !important;
+        }
+
+
+
+        /* button */
+
+        #agenda>a {
+            margin: auto;
+            padding: 15px;
+            display: block;
+            max-width: 35%;
+            min-width: 25%;
+            -webkit-user-select: none;
+            user-select: none;
+
+            border-radius: 100px;
+            border: solid transparent;
+            border-width: 6px;
+            border-color: var(--color-orange);
+
+            background-color: white;
+
+            color: var(--color-dkblue);
+            font-size: 18px;
+            line-height: 29px;
+            text-align: center;
+            font-weight: bolder;
+
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            z-index: 99;
+        }
+
+        #agenda>a:hover {
+            color: white;
+            border-color: var(--color-white);
+            background-color: var(--color-orange);
+        }
+
+        button {
+            margin: 0 auto;
+            padding: 15px;
+            display: block;
+            max-width: 35%;
+            min-width: 25%;
+            -webkit-user-select: none;
+            user-select: none;
+
+            border-radius: 100px;
+            border: 6px solid var(--color-orange);
+
+            background-color: var(--color-white);
+
+            color: var(--color-dkblue);
+            font-size: 18px;
+            line-height: 29px;
+            text-align: center;
+            font-weight: bolder;
+
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            z-index: 99;
+        }
+
+        button:hover {
+            color: var(--color-white);
+            border-color: var(--color-white);
+            background-color: var(--color-orange);
+        }
+
+        /* dividers */
+        hr {
+            width: 100%;
+            border: 2px solid var(--color-ltblue);
+
+        }
+    </style>
+
+    <!-- media -->
+    <style>
+        @media (max-width: 764px) {
+            #agenda .agenda-info {
+                width: 100%;
+                /* border: green 3px solid; */
+            }
+
+            #agenda .agenda-date .dayDesc {
+                width: 100%;
+                padding-left: 0px;
+                /* border: yellow 30px solid; */
+            }
+
+            p.dailyTheme {
+                text-align: center;
+            }
+
+            #agenda>div.agenda-schedule>div.agenda-day.two>div.agenda-info>div.agenda-date {
+                float: none;
+            }
+
+
+            #agenda>div.agenda-schedule>div.agenda-day>div.agenda-info>div.agenda-date>div.agenda-date_square.squareDesktop {
+                display: none;
+            }
+
+            #agenda>div.agenda-schedule>div.agenda-day>div.agenda-info>div.agenda-date {
+                text-align: center;
+            }
+
+            #agenda>div.agenda-schedule>div.agenda-day.one>div.agenda-date.squareMobile {
+                display: block;
+            }
+
+            #agenda>div.agenda-schedule>div.agenda-day.two>div.agenda-date.squareMobile {
+                display: block;
+            }
+
+            #agenda>div.agenda-schedule>div.agenda-day.three>div.agenda-date.squareMobile {
+                display: block;
+            }
+        }
+
+        @media (max-width:549px) {
+            #agenda {
+                padding-bottom: 125px;
+            }
+
+            #agenda .agenda-schedule .agenda-day {
+                display: block;
+                height: auto;
+                text-align: center;
+                margin-bottom: 70px;
+            }
+
+            /* #agenda .agenda-schedule .agenda-day .agenda-date {
+            width: 100%;
+            margin-bottom: 30px;
+        } */
+
+            #agenda .agenda-schedule .agenda-day .agenda-date .agenda-date_number {
+                margin: 0 auto;
+                vertical-align: middle;
+            }
+
+            #agenda .agenda-schedule .agenda-day .agenda-info {
+                text-align: center;
+            }
+
+            #agenda .agenda-schedule .agenda-day .agenda-info h2 {
+                font-size: 68px;
+            }
+
+            /* #agenda>div.agenda-schedule>div.agenda-day.two>div.agenda-date.desktopDate {
+            display: none;
+        }
+        
+        #agenda>div.agenda-schedule>div.agenda-day.two>div.agenda-date.mobileDate {
+            display: inline-block;
+        } */
+
+
+        }
+
+        @media (max-width:449px) {
+            #agenda .agenda-schedule .agenda-day .agenda-info .tag {
+                margin-right: 0;
+            }
+
+            #agenda .agenda-schedule .agenda-day.one .agenda-info a.tag {
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            #agenda>div.agenda-schedule>div.agenda-day.three>div.agenda-info>div.agenda-date>div.dayDesc>p.dailyTheme {}
+        }
+    </style>
+
+    <section id="agenda">
+
+        <div class="section-heading">
+            <p class="section-heading_title">Video Sessions</p>
+            <p class="dailyTheme">What You'll Learn</p>
+            <p class="section-heading_description">How to build profitable businesses, diversify your revenue by
+                building things that matter, and
+                best
+                practices using technology and cutting-edge platforms.</p>
+        </div>
+        <div class="agenda-schedule">
+            <div class="agenda-day one">
+                <div class="agenda-date squareMobile">
+                    <div class="agenda-date_number">DAY 1</div>
+                    <div class="agenda-date_month">AUG</div>
+                </div>
+
+                <div class="agenda-info">
+                    <div class="agenda-date">
+                        <div class="agenda-date_square squareDesktop">
+                            <div class="agenda-date_number">DAY 1</div>
+                            <div class="agenda-date_month">AUG</div>
+                        </div>
+                        <div class="dayDesc">
+                            <p class="dayOfTheWeek">Tuesday</p>
+                            <p class="dailyTheme">How to Build a Profitable Passion-Based Business</p>
+                        </div>
+                    </div>
+                    <div class="itinerary">
+                        <hr>
+                        <div class="tag">Creativity + Purpose Masterclasses</div>
+                        <div class="tag">Creative Tech Talks</div>
+                        <div class="tag">Networking</div>
+                        <div class="tag">Creative + Brand Workshop</div>
+                        <a class="tag seeAll" href="/agenda/">See All</a>
+                    </div>
+                </div>
+            </div>
+            <div class="agenda-day two">
+                <div class="agenda-date squareMobile">
+                    <div class=" agenda-date_number">DAY 2</div>
+                    <div class="agenda-date_month">AUG</div>
+                </div>
+                <div class="agenda-info">
+                    <div class="agenda-date">
+                        <div class="agenda-date_square squareDesktop">
+                            <div class="agenda-date_number">DAY 2</div>
+                            <div class="agenda-date_month">AUG</div>
+                        </div>
+                        <div class="dayDesc">
+                            <p class="dayOfTheWeek">Wednesday</p>
+                            <p class="dailyTheme">Bringing Your First Idea to Launch</p>
+                        </div>
+                    </div>
+                    <div class="itinerary">
+                        <hr>
+                        <div class="tag">Business Building Masterclasses</div>
+                        <div class="tag">Teachable: Lunch + Learn</div>
+                        <div class="tag">Go-to-Market Strategy</div>
+                        <a class="tag seeAll" href="/agenda/">See All</a>
+                    </div>
+                </div>
+                <!-- <div class="agenda-date desktopDate" style="padding-left: 30px;">
+                <div class="agenda-date_number">DAY 2</div>
+                <div class="agenda-date_month">AUG</div>
+            </div> -->
+            </div>
+            <div class="agenda-day three">
+                <div class="agenda-date squareMobile">
+                    <div class="agenda-date_number">DAY 3</div>
+                    <div class="agenda-date_month">AUG</div>
+                </div>
+
+                <div class="agenda-info">
+                    <div class="agenda-date">
+                        <div class="agenda-date_square squareDesktop">
+                            <div class="agenda-date_number">DAY 3</div>
+                            <div class="agenda-date_month">AUG</div>
+                        </div>
+                        <div class="dayDesc">
+                            <p class="dayOfTheWeek">Thursday</p>
+                            <p class="dailyTheme">Best Practices Using Technology to Support Your Goals</p>
+                        </div>
+                    </div>
+                    <div class="itinerary">
+                        <hr>
+                        <div class="tag">Community Building Masterclasses</div>
+                        <div class="tag">Courses: Lunch + Learn</div>
+                        <div class="tag">Video + Livestreaming Workshops</div>
+                        <a class="tag seeAll" href="/agenda/">See All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bttnContainer">
+            <a href="/agenda/"><button class="bttn">View Full Agenda</button></a>
+        </div>
+    </section>
+</section>

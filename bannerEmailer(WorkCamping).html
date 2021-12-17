@@ -1,0 +1,389 @@
+<style>
+    /* color codes */
+    :root {
+        --color-gray: #888;
+        --color-black: #000;
+        --color-white: #fff;
+        --color-ltgreen: #b0bc2e;
+        --color-green: #a3ab28;
+        --color-dkgreen: #969b24;
+        --color-yellow: #fae44d;
+        --color-gold: #fbc038;
+        --color-ltorange: #ff4625;
+        --color-dkorange: #e62b0a;
+        --color-orange: #f7583b;
+        --color-red: #c21d41;
+        --color-ltpurple: #9c2c54;
+        --color-purple: #802448;
+        --color-mauve: #573f42;
+        --color-brown: #662d2a;
+        --color-dkblue: #375161;
+        --color-ltblue: #D1E5DE;
+
+        --font-primary: open-sans, san-serif;
+        font-weight: 400;
+        font-style: normal;
+
+        --font-bold:
+            font-family: open-sans, san-serif;
+        font-weight: 600;
+        font-style: normal;
+
+
+        --font-extrabold: open-sans, san-serif;
+        font-weight: 900;
+        font-style: normal;
+
+    }
+
+
+    /*  general page styles */
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+    }
+
+
+    /* hero styles */
+
+    #WrkCmpHero {
+        width: 100%;
+        /* min-height: 900px; */
+        position: relative;
+        /*  default background color */
+        background: var(--color-ltblue);
+        /* background: linear-gradient(145deg, #D1E5DE, #375161); */
+        align-items: center;
+        padding-top: 5px;
+    }
+
+    #WrkCmpHero .container {
+        width: 100%;
+        padding-bottom: 50px;
+        position: relative;
+    }
+
+    /* TITLE text, superscript, and subscript */
+
+    #WrkCmpHero .wrkCmpTextLockup {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+
+    /* Title Text */
+
+    #titleSuperscript {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: calc(12px + 24 * ((100vw - 320px) / (1600 - 300)));
+        font-weight: 600;
+        color: var(--color-dkblue);
+    }
+
+    #title {
+        margin: 20px auto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: calc(32px + 120 * ((100vw - 320px) / (1600 - 300)));
+        font-weight: 600;
+        line-height: 1.2em;
+        color: var(--color-orange)b
+    }
+
+    #titleSubscript {
+        margin: auto;
+        width: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: calc(18px + 28 * ((100vw - 320px) / (1600 - 300)));
+        line-height: 1.1em;
+        padding-bottom: 15px;
+        color: var(--color-dkblue);
+    }
+
+    /*  buttons */
+
+
+
+    /* #WrkCmpHero a {
+            width: 80%;
+            max-width: 415px;
+            margin-top: 30px;
+        } */
+
+    button {
+        margin: 0 auto;
+        padding: 15px;
+        display: block;
+        max-width: 35%;
+        min-width: 25%;
+        -webkit-user-select: none;
+        user-select: none;
+
+        border-radius: 100px;
+        border: 6px solid var(--color-orange);
+
+        background-color: var(--color-white);
+
+        color: var(--dkblue);
+        font-size: 18px;
+        line-height: 29px;
+        text-align: center;
+        font-weight: bolder;
+
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        z-index: 99;
+    }
+
+    button:hover {
+        color: var(--color-white);
+        border-color: var(--color-white);
+        background-color: var(--color-orange);
+    }
+
+    #packages>div.bttnContainer {
+        margin: 60px auto;
+    }
+
+    /* textbox input styles */
+
+    .emailerInputGroup .emailerInputControl {
+        position: relative;
+        margin: 0 auto;
+        padding: auto 40px;
+        max-width: 600px;
+        height: 55px;
+        background: var(--color-white);
+        border: 0;
+        border-radius: 9px;
+        text-align: center;
+        /* color: var(--color-dkblue); */
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .emailerInputControl {
+        display: block;
+        width: 100%;
+    }
+
+    /* terms line */
+    .termsline {
+        display: block;
+        width: 100%;
+        margin: auto;
+        padding: 0px;
+        color: var(--color-dkblue);
+        text-align: center;
+    }
+
+
+    /* sponsors image at bottom of page */
+
+    div.sponsors {
+        margin: auto;
+        width: 55%;
+    }
+
+
+    #WrkCmpHero>div.container>div.sponsors>img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* floating images */
+
+    .wrkCmpImage {
+        width: 35%;
+        position: absolute;
+    }
+
+
+    /* <!-- media styles -->
+    <!-- alternate screen sizes --> */
+
+
+    /*  max 1149  */
+    @media (max-width:1149px) {
+        .wrkCmpImage {
+            width: 35%;
+            opacity: .13;
+            z-index: 1;
+
+        }
+
+        #WrkCmpHero .wrkCmpTextLockup {
+            max-width: 750px;
+            padding-right: 20px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            z-index: 2;
+        }
+
+        #WrkCmpHero a {
+            width: 80%;
+            max-width: 415px;
+            margin: 0 auto;
+            z-index: 3;
+        }
+    }
+
+    /*  max 949  */
+
+    @media (max-width:949px) {
+        .wrkCmpImage {
+            height: auto;
+            opacity: .13;
+
+        }
+
+        .bttnRegister {
+            font-size: calc(14px + 4 * ((100vw - 320px) / 680));
+            min-width: 200px;
+        }
+    }
+
+    /*  max 649  */
+
+    @media (max-width:649px) {
+
+        .bubble,
+        .disc {
+            opacity: .1;
+        }
+
+        .wrkCmpImage {
+            width: 250px;
+            opacity: .13;
+            height: auto;
+        }
+
+        #WrkCmpHero .sep {
+            margin: 30px auto;
+        }
+    }
+
+    .bttnRegister {
+        font-size: calc(14px + 4 * ((100vw - 320px) / 680));
+        min-width: 200px;
+    }
+
+    /*  max 576 */
+
+    @media (max-width:576px) {
+        .wrkCmpImage {
+            max-width: 50%;
+            position: absolute;
+        }
+    }
+
+    /* max 450 */
+
+    @media (max-width: 450px) {
+
+        #WrkCmpHero .sep {
+            width: 214px;
+            border-top: 3px solid rgba(189, 254, 255, 0.25);
+            margin: 40px auto;
+        }
+
+        #WrkCmpHero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #titleSuperscript {
+            font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+            font-family: var(--font-secondary);
+        }
+
+        #title {
+            margin: 20px auto;
+            font-family: var(--font-bold);
+            font-weight: 600;
+            font-size: calc(32px + 120 * ((100vw - 320px) / (1600 - 300)));
+            line-height: 1.2em;
+
+        }
+
+        #titleSubscript {
+            width: 100%;
+            font-family: var(--color-dkblue);
+            font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+            padding-bottom: 15px;
+        }
+
+        button {
+            min-height: 40px;
+            padding: auto 5px;
+            font-size: calc(4px + 16 * ((100vw - 320px) / 680));
+            overflow-x: hidden;
+        }
+
+    }
+</style>
+
+
+<section id="WrkCmpHero">
+    <div class="container">
+        <section class="images">
+            <!-- right -->
+            <img class="wrkCmpImage rightImage"
+                src="https://drive.google.com/uc?export=view&id=15hb-rCP9jKsMGp5lPIiVVjSlNcR40sOH"
+                style="right:15px; bottom: 35px;">
+            <!-- left -->
+            <img class="wrkCmpImage leftImage"
+                src="https://drive.google.com/uc?export=view&id=1tdHgA5807HRY-URGQ0UzaUl8eLgr8Tqc"
+                style="left:15px; bottom: 35px;">
+
+        </section>
+
+        <div class="wrkCmpTextLockup">
+
+            <!--<h3>Join the</h3>-->
+            <!-- <img src="https://drive.google.com/uc?export=view&id=1Tqs6iDwhcTvd2NCbHj7mOgQv_7fDUpoS"
+                        style="max-width: 90%; padding-bottom:15px;" alt="Welcome to the World of Work Camping"> -->
+            <p id="titleSuperscript">DISCOVER THE</p>
+            <p id="title">WORLD OF WORK CAMPING</p>
+            <p id="titleSubscript">Learn How <strong>Working Seasonal
+                    Jobs</strong>
+                Can Help You Start Your RV Lifestyle!</p>
+        </div>
+
+
+
+
+        <div class="emailerInput">
+            <form
+                action="https://make-money-rv-summit-hstest.heysummit.com/checkout/complete-order/?po=c929da99ffd67128eb21cb103bc4cc3f1a843b5ea696c8ca11ef5a41654281d2621a1111a135f687a9d147cc576ffaf9ed03f4987307551c970db8f67208b696"
+                method="POST">
+                <div class="emailerInputGroup">
+
+                    <input name="register_email" placeholder="Your email" aria-label="Your email" type="email"
+                        class="emailerInputControl">
+
+                    <span class="termsline">By submitting your email you agree to the <a id="termsLink"
+                            href="/hs/legal/terms/" target="_blank" style="color: --color-orange;">terms</a></span>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="sponsors">
+            <img src="https://drive.google.com/uc?export=view&id=1NcnOfEsRVQxlqq8hyHnw8sT784OpJlqY">
+        </div>
+
+        <div class="bttnContainer">
+            <a
+                href="https://make-money-rv-summit-hstest.heysummit.com/checkout/complete-order/?po=c929da99ffd67128eb21cb103bc4cc3f1a843b5ea696c8ca11ef5a41654281d2621a1111a135f687a9d147cc576ffaf9ed03f4987307551c970db8f67208b696"><button
+                    class="bttn bttnRegister">REGISTER FOR FREE</button></a>
+        </div>
+
+    </div>
+    <div class="vertSpacerXS"></div>
+</section>

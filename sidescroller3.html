@@ -1,0 +1,313 @@
+<!-- 
+    Filename: sidescroller.html
+    Date Created: 10-06-2021
+    Author: Clint Kline
+    Purpose:
+        - Act as a template for an html side-scroller object
+ -->
+
+
+<!-- #############################
+    CSS 
+################################-->
+
+
+<style>
+    /* color codes */
+    :root {
+        --color-gray: #888;
+        --color-black: #000;
+        --color-white: #fff;
+        --color-ltgreen: #b0bc2e;
+        --color-green: #a3ab28;
+        --color-dkgreen: #969b24;
+        --color-yellow: #fae44d;
+        --color-gold: #fbc038;
+        --color-ltorange: #ff4625;
+        --color-dkorange: #e62b0a;
+        --color-orange: #f7583b;
+        --color-red: #c21d41;
+        --color-ltpurple: #9c2c54;
+        --color-purple: #802448;
+        --color-mauve: #573f42;
+        --color-brown: #662d2a;
+        --color-dkblue: #375161;
+        --color-ltblue: #D1E5DE;
+
+        --font-primary: open-sans, san-serif;
+        font-weight: 400;
+        font-style: normal;
+
+        --font-bold: open-sans, san-serif;
+        font-weight: 600;
+        font-style: normal;
+
+        --font-extrabold: open-sans, san-serif;
+        font-weight: 900;
+        font-style: normal;
+
+    }
+
+    #sideScroller {
+        background: var(--color-dkblue);
+        text-align: center;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 30px 0;
+    }
+
+    #sideScroller>div>div>div>p {
+        display: inline-block;
+        margin: auto;
+        /* word spacing */
+        padding-right: 40px;
+        font-family: var(--font-bold);
+        color: lightblue;
+        /* sidescroller text size */
+        font-size: 80px;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        /* border: 3px yellow solid; */
+    }
+
+    #sideScroller>p {
+        font-size: 24px;
+        line-height: 42px;
+        margin: 0 0 45px;
+        padding: 0 20px;
+        color: lightblue;
+        /* border: 3px red solid; */
+    }
+
+    #sideScroller p span {
+        font-size: 40px;
+        font-weight: normal;
+        text-transform: none;
+        letter-spacing: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #sideScroller>div {
+        position: relative;
+        width: 100vw;
+        max-width: 100%;
+        height: 90px;
+        /* --offset: 20vw;
+        --move-initial: calc(-25% + var(--offset));
+        --move-final: calc(-50% + var(--offset)); */
+    }
+
+    #sideScroller .track {
+        white-space: nowrap;
+    }
+
+    #sideScroller>div {
+        height: 90px;
+    }
+
+
+    #sideScroller .trackone {
+        will-change: transform;
+        animation-name: marquee;
+        /* control marquee duration */
+        animation-duration: 15s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: backwards;
+        animation-play-state: running;
+    }
+
+
+    /* .sideScroller .tracktwo {
+        animation-name: marquee;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: backwards;
+        animation-play-state: running;
+    } */
+
+    /*
+    .sideScroller .trackthree {
+        position: relative;
+        overflow: hidden;
+        animation-name: marquee;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: backwards;
+        animation-play-state: running;
+        
+    } */
+
+    /* scroller start and end points */
+    @keyframes marquee {
+        from {
+            transform: translateX(0vw);
+        }
+
+        /* define how many pixels the words shift during the animation */
+        to {
+            transform: translateX(-2420px);
+        }
+    }
+</style>
+
+
+<!-- #############################
+    HTML 
+################################-->
+
+<!-- side scroller -->
+
+
+<div id="sideScroller">
+
+    <!-- stationary text -->
+
+    <p class="stationaryText">Learn from <span>People Like You</span> who have done it before</p>
+
+    <!-- marquee -->
+    <!-- row one -->
+
+    <div class="marquee">
+        <div class="track trackone">
+            <div class="marqueeText">
+
+                <!-- track content text -->
+
+                <p>LET'S</p>
+                <p>GO</p>
+                <p>WORK</p>
+                <p>CAMPING!</p>
+                <p>JOIN</p>
+                <p>US</p>
+                <p>LIVE</p>
+                <p>FOR</p>
+                <p>FREE!</p>
+                <p>LET'S</p>
+                <p>GO</p>
+                <p>WORK</p>
+                <p>CAMPING!</p>
+                <p>JOIN</p>
+                <p>US</p>
+                <p>LIVE</p>
+                <p>FOR</p>
+                <p>FREE!</p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- row 2 -->
+
+    <!-- <div class="marquee">
+        <div class=" track tracktwo">
+            <div>
+
+                <p>Let's Go Work Camping! Join Us Live for FREE! Let's Go Work Camping! Join Us Live for FREE! Let's Go
+                    Work Camping! Join Us Live for FREE! Let's Go Work Camping! Join Us Live for FREE!</p>
+
+            </div>
+        </div>
+    </div> -->
+
+    <!-- row 3 -->
+
+    <!-- <div class="marquee">
+        <div class="track trackthree">
+            <div>
+
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+                <img class="scrollImage"
+                    src="https://drive.google.com/uc?export=view&id=1VSiKrEVx2IUb6iApPVOCBeDGVBDkOE6x" alt="scrollImage"
+                    href="www.google.com">
+
+
+
+            </div>
+        </div>
+    </div> -->
+</div>

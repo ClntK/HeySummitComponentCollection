@@ -1,0 +1,392 @@
+<!-- 
+    FileName: packages.html 
+    Author: Clint Kline
+    Date Created: 10-2-2021
+    LastUpdated: 12-13-2021
+    Purpose:
+        - construct a display consisting of a header row, 
+        above 3 vertical columns. texts wraps, grows, and shrinks with screen size.
+        
+-->
+
+
+<div>
+
+
+
+
+    <!-- /* page-container */ -->
+    <style>
+        /* color codes */
+        /* :root {
+            --color-gray: #888;
+            --color-black: #000;
+            --color-white: #fff;
+            --color-ltgreen: #b0bc2e;
+            --color-green: #a3ab28;
+            --color-dkgreen: #969b24;
+            --color-yellow: #fae44d;
+            --color-gold: #fbc038;
+            --color-ltorange: #ff4625;
+            --color-dkorange: #e62b0a;
+            --color-orange: #f7583b;
+            --color-red: #c21d41;
+            --color-ltpurple: #9c2c54;
+            --color-purple: #802448;
+            --color-mauve: #573f42;
+            --color-brown: #662d2a;
+            --color-dkblue: #375161;
+            --color-ltblue: #D1E5DE;
+
+            --font-primary: open-sans, san-serif;
+            font-weight: 400;
+            font-style: normal;
+
+            --font-bold: open-sans, san-serif;
+            font-weight: 600;
+            font-style: normal;
+
+            --font-extrabold: open-sans, san-serif;
+            font-weight: 900;
+            font-style: normal;
+
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        } */
+
+        #packages {
+            position: relative;
+            text-align: center;
+        }
+
+        #packages .section-heading p {
+            color: #6F7680;
+        }
+
+        #packages .section-heading p#pkgtitle {
+            margin: 20px auto;
+            font-family: var(--font-extrabold);
+            font-size: calc(32px + 120 * ((100vw - 320px) / (1600 - 300)));
+            font-weight: 600;
+            line-height: 1.2em;
+            color: var(--color-dkblue)
+        }
+
+        #packages .section-heading p#pkgsubtitle {
+            margin: auto;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: calc(18px + 28 * ((100vw - 320px) / (1600 - 300)));
+            line-height: 1.1em;
+            padding-bottom: 15px;
+            color: var(--color-dkblue);
+        }
+
+
+        #packages .package-detail {
+            width: 100%;
+            max-width: 1050px;
+            margin: 85px auto 0;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'sofia-pro', sans-serif;
+        }
+
+        #packages .package-detail .package {
+            width: 30%;
+            border-radius: 15px;
+            filter: drop-shadow(12px 12px 10px gray);
+            padding: 20px;
+
+        }
+
+        #pack1 {
+            background-color: var(--color-ltblue);
+        }
+
+        #pack2 {
+            background-color: var(--color-ltgreen);
+
+        }
+
+        #pack3 {
+            background-color: var(--color-ltpurple);
+
+        }
+
+        #packages .package-detail .package h4 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 0.13em;
+            padding-top: 10px;
+            text-transform: uppercase;
+            color: #939AA4;
+            margin: 0;
+        }
+
+
+        #packages .package-detail .package h2 {
+            font-family: 'kimchi', sans-serif;
+            font-weight: normal;
+            font-size: calc(28px + (45 - 20) * ((100vw - 300px) / (1600 - 300)));
+            line-height: 100%;
+            padding-top: 20px;
+            color: whitesmoke;
+            margin: 10px 0 40px;
+            text-transform: uppercase;
+        }
+
+        #packages .package-detail .package p.header {
+            font-style: normal;
+            font-weight: 900;
+            font-size: 15px;
+            color: #6F7680;
+            text-transform: uppercase;
+            margin: 0 0 25px;
+        }
+
+        #packages .package-detail .package p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 26px;
+            color: #6F7680;
+            margin: 0;
+            padding: 0 50px;
+        }
+
+        #packages .package-detail .package .sep {
+            width: 30px;
+            height: 2px;
+            background: var(--color-orange);
+            margin: 15px auto;
+        }
+
+        #packages .prize-bubble.mobile {
+            display: none;
+        }
+
+        #packages .prize-bubble.desktop {
+            position: absolute;
+            right: calc(28px + (45 - 20) * ((100vw - 300px) / (1600 - 300)));
+            top: calc(28px + (45 - 20) * ((100vw - 300px) / (1600 - 300)));
+            width: 209px;
+            height: 209px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: rgba(255, 255, 255, 0.68);
+            background: var(--color-orange);
+            filter: drop-shadow(12px 12px 10px gray);
+            transform: rotate(17.61deg);
+            border-radius: 50%;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        #packages .prize-bubble p {
+            font-family: 'sofia-pro', sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 18px;
+            margin-bottom: 0;
+        }
+
+        #packages .prize-bubble h2 {
+            line-height: 1.4em;
+        }
+
+        #packages .prize-bubble h3 {
+            font-family: 'kimchi', sans-serif;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 25px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin: 10px 0;
+        }
+
+
+        button {
+            padding: 15px;
+            display: block;
+            max-width: 35%;
+            min-width: 25%;
+            margin-top: 20px;
+            -webkit-user-select: none;
+            user-select: none;
+
+            border-radius: 100px;
+            border: 6px solid var(--color-orange);
+
+            background-color: var(--color-white);
+
+            color: var(--color-dkblue);
+            font-size: 18px;
+            line-height: 29px;
+            text-align: center;
+            font-weight: bolder;
+
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            z-index: 99;
+        }
+
+        button:hover {
+            color: var(--color-white);
+            border-color: var(--color-white);
+            background-color: var(--color-orange);
+        }
+
+
+
+        @media (max-width:1100px) {
+            #packages .prize-bubble.desktop {
+                display: none;
+            }
+
+            #packages .prize-bubble.mobile {
+                display: inline-block;
+                padding: 5px 20px;
+                margin: 30px 20px -30px;
+                background: var(--color-orange);
+                border-radius: 50px;
+            }
+
+            #packages .prize-bubble.mobile p {
+                margin: 20px 0;
+                font-size: calc(13px + 18 * ((100vw - 320px) / (1600 - 300)));
+                font-weight: bold;
+                line-height: 18px;
+                color: rgba(255, 255, 255, 0.68);
+                text-transform: uppercase;
+            }
+        }
+
+        @media (max-width:949px) {
+            #packages .package-detail .package p {
+                padding: 0 20px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 27px;
+            }
+        }
+
+
+        @media (max-width:750px) {
+            #packages .package-detail {
+                display: block;
+            }
+
+            #packages .package-detail .package {
+                width: 80%;
+                margin: 0 auto 80px;
+            }
+
+            #packages .package-detail .package:last-of-type {
+                margin-bottom: 0;
+            }
+
+            #packages .package-detail .package p {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 549px) {
+            .section-heading p {
+                font-size: 21px;
+                line-height: 145%;
+            }
+        }
+
+        .section-heading p {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 145%;
+            width: 100%;
+            max-width: 615px;
+            margin: 0 auto;
+        }
+
+        #packages .section-heading h2 {
+            font-family: var(--font-extrabold);
+            font-size: calc(32px + 120 * ((100vw - 320px) / (1600 - 300)));
+            line-height: 1.2em;
+            color: var(--dkblue);
+        }
+
+        #packages .section-heading p {
+            color: #6F7680;
+            font-size: 21px;
+            line-height: 145%;
+        }
+    </style>
+
+
+    <body>
+        <section id="packages">
+            <div class="section-heading">
+                <p id="pkgtitle">Packages</p>
+                <p id="pkgsubtitle">Let's Do It!</p>
+                <p>We've got a lot planned to help kickstart your business. Pick and choose sessions and networking to
+                    achieve your goals.</p>
+            </div>
+            <div class="prize-bubble desktop">
+                <p>Automatic Entry To</p>
+                <h3>Win Prizes</h3>
+                <p>From our Speakers</p>
+            </div>
+            <div class="prize-bubble mobile">
+                <p>Automatic entry to win prizes from our speakers !</p>
+            </div>
+            <div class="package-detail">
+                <div id="pack1" class="package">
+                    <h4>3-Day Access</h4>
+                    <h2>Live Event</h2>
+                    <p class="header">Access To:</p>
+                    <p>Live Broadcasts of Speaker Sessions</p>
+                    <div class="sep"></div>
+                    <p>Chat Community</p>
+                </div>
+                <div id="pack2" class="package">
+                    <h4>3-Day+1 Month</h4>
+                    <h2>Live + Replay</h2>
+                    <p class="header">Live Day,
+                        Plus:</p>
+                    <p>30-Day Continued Access to Content</p>
+                    <div class="sep"></div>
+                    <p>Session wrap-up guides delivered straight to your email after the summit</p>
+                    <div class="sep"></div>
+                    <p>Access to Exclusive Community,
+                        make targeted introductions</p>
+                </div>
+                <div id="pack3" class="package">
+                    <h4>Everything + More</h4>
+                    <h2>VIP Package</h2>
+                    <p class="header">Live+Replay,
+                        Plus:</p>
+                    <p>12 Months Continued Access to Content</p>
+                    <div class="sep"></div>
+                    <p>Exclusive Access from Partner Products</p>
+                    <div class="sep"></div>
+                    <p>Entered for a chance to win one of 50 gift boxes</p>
+                </div>
+            </div>
+            <div class="bttnContainer">
+                <a href="/checkout/select-tickets/"><button class="bttn bttnRegister">Get
+                        Tickets</button></a>
+            </div>
+        </section>
+</div>
+</body>
